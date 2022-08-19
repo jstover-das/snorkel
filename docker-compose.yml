@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    image: snorkel:latest
+    build: .
+    environment:
+      GOOGLE_MAPS_API_KEY:
+      SNORKEL_DEFAULT_HOST: "${SNORKEL_DEFAULT_HOST:-http://localhost:5000}"   # set to scuba-mask default port
+    #volumes:
+      #- ./:/app
+    ports:
+      - "5005:5005"

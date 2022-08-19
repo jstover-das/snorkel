@@ -1,0 +1,36 @@
+[project]
+name = "snorkel"
+readme = "README.md"
+requires-python = ">=3.6"
+dependencies = [
+    "Flask ~= 2.0",
+    "requests ~= 2.26.0"
+]
+authors = []
+classifiers = []
+dynamic = ["version", "description"]
+
+[project.urls]
+Home = "https://github.com/dasintel/scuba-mask"
+
+[project.gui-scripts]
+snorkel-start = "snorkel.__main__:start"
+
+[project.optional-dependencies]
+dev = [
+    "flit",
+    "autoflake",
+    "yapf"
+]
+test = [
+    "pytest",
+    "pytest-cov"
+]
+
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.yapf]
+based_on_style = 'pep8'
+column_limit = 100

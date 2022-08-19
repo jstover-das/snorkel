@@ -3,25 +3,25 @@
 <head>
     <title>Snorkel</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script src="./index.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css') }}" />
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 </head>
 <body>
 
     <div id="content" class="splitter">
         <div id="map" class="split-left">MAP</div>
         <div id="separator" class="split-separator"></div>
-        <div id="config-panel" class="split-right">
+        <div id="control-panel" class="split-right">
             <div class="app-icon">
-                <img  src=/snorkel.svg alt="Snorkel Icon">
+                <img src="{{ url_for('static', filename='snorkel.svg') }}" alt="Snorkel Icon">
             </div>
-            <form id="config-form" onsubmit="submitRequest(event)">
+            <form id="config-form" onsubmit="submitRequest">
 
                 <label for="host_input">URL</label>
                 <input id="host_input"
                        type="text"
                        name="host"
-                       value="http://localhost:5000">
+                       value="{{ default_host }}">
 
                 <label for="layer_input">Layer</label>
                 <select id="layer_input" name="layer">
@@ -36,7 +36,7 @@
                 <input id="version_input"
                        type="text"
                        name="version"
-                       value="2021-08-01">
+                       value="{{ default_version }}">
 
                 <br>
                 <label for="geometry_input">Geometry</label>
@@ -45,7 +45,7 @@
                     name="geometry"
                     rows=20
                 >
-{"coordinates":[[[[175.7160191667,-37.8634718667],[175.7006696,-37.8636296167],[175.7006520167,-37.8574986667],[175.7242507,-37.8573069833],[175.7240712333,-37.858044],[175.7221999833,-37.85991715],[175.7223410333,-37.86254545],[175.7223813333,-37.8633059],[175.71909635,-37.8633511333],[175.7187687333,-37.8630722333],[175.7183974,-37.8631026667],[175.71822095,-37.8632802333],[175.7182401833,-37.8634532667],[175.7160191667,-37.8634718667]]]],"type":"MultiPolygon"}
+                    {{ default_geometry }}
                 </textarea>
 
                 <br>
@@ -54,10 +54,11 @@
         </div>
     </div>
 
+    <!--
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwZzGsx1eaRK1qkCuk702-qNCkYG0ff-U&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap&v=weekly"
       async
     ></script>
-
+    -->
 </body>
 </html>

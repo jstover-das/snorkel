@@ -1,37 +1,41 @@
 html,
 body,
-#content {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-  font-family: "Lucinda Grande", "Lucinda Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+#content,
+#app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    font-family: "Lucinda Grande", "Lucinda Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
 }
 
-#config-panel {
+#control-panel {
     overflow: scroll;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-#config-panel > .app-icon {
+
+#control-panel > .app-icon {
     width: 100%;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
-#config-panel > .app-icon > img {
+
+#control-panel > .app-icon > img {
     width: 70px;
 }
-#config-panel > form {
-  display: flex;
-  flex-direction: column;
+
+#control-panel > label {
+    margin-top: 10px;
+    display: inline-block;
 }
-#config-panel > form > label {
-  margin-top: 10px;
-  display: inline-block;
-}
-#config-panel > form > textarea {
-  resize: vertical;
+
+#control-panel > textarea {
+    resize: vertical;
+    height: 19em;
 }
 
 
@@ -41,6 +45,7 @@ body,
     height: 100px;
     display: flex;
 }
+
 .split-separator {
     cursor: col-resize;
     background-color: #aaa;
@@ -54,12 +59,14 @@ body,
     -ms-user-select: none;
     user-select: none;
 }
+
 .split-left {
     background-color: #dde;
     width: 70%;
     height: 100%;
     min-width: 10px;
 }
+
 .split-right {
     background-color: #eee;
     width: 30%;

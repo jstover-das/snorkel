@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snorkel</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css') }}"/>
+</head>
+<body>
+
+<div id="app">
+<div id="content" class="splitter">
+    <google-map id="map" class="split-left" ref="googleMap" ></google-map>
+    <div id="separator" class="split-separator"></div>
+    <div id="panel" class="split-right">
+        <control-panel id="control-panel"
+            icon="{{ url_for('static', filename='snorkel.svg') }}"
+            geometries-url="{{ url_for('static', filename='geometries.json') }}"
+            default-host="{{ default_host }}"
+            @create-layer="onControlPanelCreateLayer"
+        ></control-panel>
+    </div>
+</div>
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+{% if api_key %}
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=drawing&callback=initMap&v=weekly"
+  async
+></script>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "snorkel-flask",
+  "version": "1.0.0",
+  "description": "This is still very much WIP, but I would like to merge it into the main scuba-mask repo at some point",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joshua Stover",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.14"
+  }
+}
